@@ -37,12 +37,7 @@ C=[1 0 0 0];
 D=[];
 
 sis=ss(A,B,C,D);
-figure
-pzmap(sis)
-figure
-step(sis,'b')
-hold on
-step(h,'--r')
+
 
 
 
