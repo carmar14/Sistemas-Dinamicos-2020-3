@@ -24,3 +24,14 @@ step(sis)
 %magnitud de entradas
 u1=10;
 u2=50;
+
+%g54
+A54=[0 1;
+  -(K1+K2*(r1/r2)^2)/(J1+J2*(r1/r2)^2) -(B1+B2*(r1/r2)^2)/(J1+J2*(r1/r2)^2)];
+B54=[0 0;
+   1/(J1+J2*(r1/r2)^2) (r1/r2)/(J1+J2*(r1/r2)^2)];
+C54=[r1/r2 0];
+D54=zeros(1,2);
+sis54=ss(A54,B54,C54,D54);
+hold on
+step(sis54,'*r')
