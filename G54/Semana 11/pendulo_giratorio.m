@@ -5,12 +5,12 @@ close all
 global m l w g
 l=0.1;
 m=20;
-w=10;
+w=11;
 g=9.8;
 
 
 t=0:4e-3:10;
-x0=[0.1 0]; 
+x0=[0.5 0]; 
 [t,y]=ode45(@pendulo_sop_g,t,x0);
 
 [m1 n]=size(y);
