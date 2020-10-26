@@ -12,7 +12,7 @@ k=100;
 b=13;
 
 t=0:4e-2:20;
-x0=[0.5 0 0 0]; 
+x0=[0 0 0.1 0]; 
 [t,y]=ode45(@grua,t,x0);
 
 [m n]=size(y);
@@ -48,7 +48,9 @@ for i=1:n
     subplot(n,1,i)
     
     plot(t,y(:,i))
+    
 end
+
 
 
 function [dxdt]=grua(t,X)

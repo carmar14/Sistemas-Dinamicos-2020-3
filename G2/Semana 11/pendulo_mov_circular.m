@@ -5,7 +5,7 @@ close all
 global m l w g a
 l=0.02;
 m=20;
-w=15;
+w=26;
 g=9.8;
 a=0.01;
 
