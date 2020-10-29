@@ -28,7 +28,7 @@ x3=[C C];
 y3=[0 y(end)+1];
 
 
-v=2;
+v=1;
 if v==1
     x=[0 C C 0]; %para el fill
     line(x1,y1,'Color','black','LineWidth',2)
