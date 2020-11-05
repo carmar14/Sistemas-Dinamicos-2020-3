@@ -9,7 +9,7 @@ g=9.8;
 As=1;
 k=As*sqrt(2*g);
 Q=2; %Entrada de equilibrio %Para Q=20 requiere mas tiempo
-q=0.01; 
+q=0.01; % entrada del sistema lineal
 
 %Matrices Jacobianas
 syms h1 h2 q1
@@ -36,18 +36,16 @@ Bj=double(Bj);
 
 t=linspace(0,80,5000); %Q=2
 % t=linspace(0,800,5000); %Q=20
-Xe=[h1e h2e];
-X0=1.1*Xe; %Condicion inical del sistema no lineal debe estar cerca del punto de equilibrio
+Xe=[h1e h2e]; %punto de equilibrio del sistema 
+X0=1.1*Xe; %Condicion inicial del sistema no lineal debe estar cerca del punto de equilibrio
 
-Xini=X0-Xe;
+Xini=X0-Xe; %condicion inicial del sistema lineal
 
-
-
-[t,y]=ode45(@tanque_linealizado2,t,Xini);
+[t,y]=ode45(@tanque_linealizado2,t,Xini); %sistema linealizado
 [m n]=size(y);
 
 
-[t,y1]=ode45(@tanque_no_lineal,t,X0);
+[t,y1]=ode45(@tanque_no_lineal,t,X0); %sistema no lineal
 
 for i=1:n
     subplot(n,1,i)
@@ -61,10 +59,17 @@ figure
 for i=1:n
     subplot(n,1,i)
     plot(t,abs(y(:,i)+Xe(1,i)-y1(:,i)))
-    ylabel("h"+i+"(m)");
+    ylabel("\Delta h"+i+"(m)");
     xlabel('Tiempo (s)');
     legend('Error absoluto')
 end
+
+%error cuadratico medio
+
+e1=(1/m)*sum((y(:,1)+Xe(1,1)-y1(:,1)).^2);
+
+e2=(1/m)*sum((y(:,2)+Xe(1,2)-y1(:,2)).^2);
+
 
 
 
