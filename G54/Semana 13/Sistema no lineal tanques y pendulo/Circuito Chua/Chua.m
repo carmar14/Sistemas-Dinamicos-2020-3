@@ -3,7 +3,7 @@ function dXdt=Chua(t,X)  %
     a=9.5; %9.5
 %     B=9; %sonidos mas agudos B pequeños, B grandes (antes del caos) sonidos agudos
 %     a=10.91865; %caos;
-    B=14; %17
+    B=10; %17
 %     a=6;
 %     B=8;
     
